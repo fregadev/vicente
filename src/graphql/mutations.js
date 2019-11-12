@@ -45,7 +45,6 @@ export const updateAssistedPerson = `mutation UpdateAssistedPerson($input: Updat
   }
 }
 `;
-// language=GraphQL
 export const deleteAssistedPerson = `mutation DeleteAssistedPerson($input: DeleteAssistedPersonInput!) {
   deleteAssistedPerson(input: $input) {
     id
@@ -68,7 +67,6 @@ export const deleteAssistedPerson = `mutation DeleteAssistedPerson($input: Delet
   }
 }
 `;
-// language=GraphQL
 export const createVisitRecord = `mutation CreateVisitRecord($input: CreateVisitRecordInput!) {
   createVisitRecord(input: $input) {
     id

@@ -1,12 +1,19 @@
-type Task
-{
+type AssistedPerson @model {
     id: ID!
-    title: String!
-    description: String
-    status: String
+    name: String!
+    address: String
+    familyMembers: [AssistedPerson]
+    birthdate: String
+    phoneNUmber: String
+    conference: Conference
 }
-type PrivateNote
-{
+type Conference @model {
     id: ID!
-    content: String!
+    name: String!
+    parish: Parish
+}
+
+type Parish @model {
+    name: String
+    city: String
 }
