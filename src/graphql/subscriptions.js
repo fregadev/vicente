@@ -45,6 +45,7 @@ export const onUpdateAssistedPerson = `subscription OnUpdateAssistedPerson {
   }
 }
 `;
+// language=GraphQL
 export const onDeleteAssistedPerson = `subscription OnDeleteAssistedPerson {
   onDeleteAssistedPerson {
     id
@@ -67,6 +68,7 @@ export const onDeleteAssistedPerson = `subscription OnDeleteAssistedPerson {
   }
 }
 `;
+// language=GraphQL
 export const onCreateVisitRecord = `subscription OnCreateVisitRecord($owner: String!) {
   onCreateVisitRecord(owner: $owner) {
     id
@@ -107,6 +109,7 @@ export const onUpdateVisitRecord = `subscription OnUpdateVisitRecord($owner: Str
   }
 }
 `;
+// language=GraphQL
 export const onDeleteVisitRecord = `subscription OnDeleteVisitRecord($owner: String!) {
   onDeleteVisitRecord(owner: $owner) {
     id

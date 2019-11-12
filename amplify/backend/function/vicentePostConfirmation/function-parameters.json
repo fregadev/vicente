@@ -1,0 +1,14 @@
+{
+    "trigger": true,
+    "modules": [
+        "custom"
+    ],
+    "parentResource": "vicente",
+    "functionName": "vicentePostConfirmation",
+    "parentStack": "auth",
+    "triggerEnvs": "[]",
+    "triggerTemplate": "PostConfirmation.json.ejs",
+    "roleName": "vicentePostConfirmation",
+    "skipEdit": true,
+    "resourceName": "vicentePostConfirmation"
+}

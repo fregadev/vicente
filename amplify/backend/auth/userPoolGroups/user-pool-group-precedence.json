@@ -1,0 +1,10 @@
+[
+    {
+        "groupName": "vicentians",
+        "precedence": 1
+    },
+    {
+        "groupName": "sysadmins",
+        "precedence": 2
+    }
+]
