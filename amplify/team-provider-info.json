@@ -1,0 +1,19 @@
+{
+    "dev": {
+        "awscloudformation": {
+            "AuthRoleName": "amplify-vicente-dev-11649-authRole",
+            "UnauthRoleArn": "arn:aws:iam::629290448090:role/amplify-vicente-dev-11649-unauthRole",
+            "AuthRoleArn": "arn:aws:iam::629290448090:role/amplify-vicente-dev-11649-authRole",
+            "Region": "us-east-1",
+            "DeploymentBucketName": "amplify-vicente-dev-11649-deployment",
+            "UnauthRoleName": "amplify-vicente-dev-11649-unauthRole",
+            "StackName": "amplify-vicente-dev-11649",
+            "StackId": "arn:aws:cloudformation:us-east-1:629290448090:stack/amplify-vicente-dev-11649/de17fab0-04fa-11ea-86b0-1202dd259b0c"
+        },
+        "categories": {
+            "auth": {
+                "vicentec3191e7d": {}
+            }
+        }
+    }
+}
