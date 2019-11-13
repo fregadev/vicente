@@ -6,7 +6,7 @@
 
 // You can delete this file if you're not using it
 
-import Auth from "@aws-amplify/auth"
+import { Auth } from "aws-amplify"
 import { setUser } from "./src/utils/auth"
 
 import Amplify from "aws-amplify"
