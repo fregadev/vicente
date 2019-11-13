@@ -1,27 +1,27 @@
 {
-    "dev": {
-        "awscloudformation": {
-            "AuthRoleName": "amplify-vicente-dev-145613-authRole",
-            "UnauthRoleArn": "arn:aws:iam::629290448090:role/amplify-vicente-dev-145613-unauthRole",
-            "AuthRoleArn": "arn:aws:iam::629290448090:role/amplify-vicente-dev-145613-authRole",
-            "Region": "us-east-1",
-            "DeploymentBucketName": "amplify-vicente-dev-145613-deployment",
-            "UnauthRoleName": "amplify-vicente-dev-145613-unauthRole",
-            "StackName": "amplify-vicente-dev-145613",
-            "StackId": "arn:aws:cloudformation:us-east-1:629290448090:stack/amplify-vicente-dev-145613/568c4970-056d-11ea-83c8-0a05dbc7583b"
-        },
-        "categories": {
-            "function": {
-                "vicenteCreateAuthChallenge": {},
-                "vicenteDefineAuthChallenge": {},
-                "vicentePostConfirmation": {},
-                "vicenteVerifyAuthChallengeResponse": {
-                    "RECAPTCHASECRET": "6LcbM8IUAAAAAG89qppf5pcjK_TuxGvSDRemprTf"
-                }
-            },
-            "auth": {
-                "vicente": {}
-            }
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-vicente-dev-145613-authRole",
+      "UnauthRoleArn": "arn:aws:iam::629290448090:role/amplify-vicente-dev-145613-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::629290448090:role/amplify-vicente-dev-145613-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-vicente-dev-145613-deployment",
+      "UnauthRoleName": "amplify-vicente-dev-145613-unauthRole",
+      "StackName": "amplify-vicente-dev-145613",
+      "StackId": "arn:aws:cloudformation:us-east-1:629290448090:stack/amplify-vicente-dev-145613/568c4970-056d-11ea-83c8-0a05dbc7583b"
+    },
+    "categories": {
+      "function": {
+        "vicenteCreateAuthChallenge": {},
+        "vicenteDefineAuthChallenge": {},
+        "vicentePostConfirmation": {},
+        "vicenteVerifyAuthChallengeResponse": {
+          "RECAPTCHASECRET": "6LcbM8IUAAAAAG89qppf5pcjK_TuxGvSDRemprTf"
         }
+      },
+      "auth": {
+        "vicente": {}
+      }
     }
+  }
 }

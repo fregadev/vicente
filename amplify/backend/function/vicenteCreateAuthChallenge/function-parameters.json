@@ -1,14 +1,12 @@
 {
-    "trigger": true,
-    "modules": [
-        "captcha-create-challenge"
-    ],
-    "parentResource": "vicente",
-    "functionName": "vicenteCreateAuthChallenge",
-    "parentStack": "auth",
-    "triggerEnvs": "[]",
-    "triggerTemplate": "CreateAuthChallenge.json.ejs",
-    "roleName": "vicenteCreateAuthChallenge",
-    "skipEdit": true,
-    "resourceName": "vicenteCreateAuthChallenge"
+  "trigger": true,
+  "modules": ["captcha-create-challenge"],
+  "parentResource": "vicente",
+  "functionName": "vicenteCreateAuthChallenge",
+  "parentStack": "auth",
+  "triggerEnvs": "[]",
+  "triggerTemplate": "CreateAuthChallenge.json.ejs",
+  "roleName": "vicenteCreateAuthChallenge",
+  "skipEdit": true,
+  "resourceName": "vicenteCreateAuthChallenge"
 }

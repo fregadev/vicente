@@ -1,4 +1,4 @@
 {
-    "modules": "captcha-define-challenge",
-    "resourceName": "vicenteDefineAuthChallenge"
+  "modules": "captcha-define-challenge",
+  "resourceName": "vicenteDefineAuthChallenge"
 }

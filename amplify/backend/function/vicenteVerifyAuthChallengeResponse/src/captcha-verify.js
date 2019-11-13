@@ -1,5 +1,5 @@
 /* eslint-disable */
-const axios = require('axios');
+const axios = require("axios")
 /* eslint-enable */
 
 exports.handler = (event, context, callback) => {
@@ -10,15 +10,15 @@ exports.handler = (event, context, callback) => {
     )
     .then(response => {
       if (response && response.data && response.data.success) {
-        event.response.answerCorrect = true;
-        callback(null, event);
+        event.response.answerCorrect = true
+        callback(null, event)
       } else {
-        event.response.answerCorrect = false;
-        callback(new Error('captcha verification error'), event);
+        event.response.answerCorrect = false
+        callback(new Error("captcha verification error"), event)
       }
     })
     .catch(() => {
-      event.response.answerCorrect = false;
-      callback(new Error('captcha verification error'), event);
-    });
-};
+      event.response.answerCorrect = false
+      callback(new Error("captcha verification error"), event)
+    })
+}

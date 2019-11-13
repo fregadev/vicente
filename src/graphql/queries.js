@@ -22,7 +22,7 @@ export const getAssistedPerson = `query GetAssistedPerson($id: ID!) {
     }
   }
 }
-`;
+`
 export const listAssistedPersons = `query ListAssistedPersons(
   $filter: ModelAssistedPersonFilterInput
   $limit: Int
@@ -44,7 +44,7 @@ export const listAssistedPersons = `query ListAssistedPersons(
     nextToken
   }
 }
-`;
+`
 export const getVisitRecord = `query GetVisitRecord($id: ID!) {
   getVisitRecord(id: $id) {
     id
@@ -64,7 +64,7 @@ export const getVisitRecord = `query GetVisitRecord($id: ID!) {
     owner
   }
 }
-`;
+`
 export const listVisitRecords = `query ListVisitRecords(
   $filter: ModelVisitRecordFilterInput
   $limit: Int
@@ -86,4 +86,4 @@ export const listVisitRecords = `query ListVisitRecords(
     nextToken
   }
 }
-`;
+`

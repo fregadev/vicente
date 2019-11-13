@@ -22,7 +22,7 @@ export const onCreateAssistedPerson = `subscription OnCreateAssistedPerson {
     }
   }
 }
-`;
+`
 export const onUpdateAssistedPerson = `subscription OnUpdateAssistedPerson {
   onUpdateAssistedPerson {
     id
@@ -44,7 +44,7 @@ export const onUpdateAssistedPerson = `subscription OnUpdateAssistedPerson {
     }
   }
 }
-`;
+`
 export const onDeleteAssistedPerson = `subscription OnDeleteAssistedPerson {
   onDeleteAssistedPerson {
     id
@@ -66,7 +66,7 @@ export const onDeleteAssistedPerson = `subscription OnDeleteAssistedPerson {
     }
   }
 }
-`;
+`
 export const onCreateVisitRecord = `subscription OnCreateVisitRecord($owner: String!) {
   onCreateVisitRecord(owner: $owner) {
     id
@@ -86,7 +86,7 @@ export const onCreateVisitRecord = `subscription OnCreateVisitRecord($owner: Str
     owner
   }
 }
-`;
+`
 export const onUpdateVisitRecord = `subscription OnUpdateVisitRecord($owner: String!) {
   onUpdateVisitRecord(owner: $owner) {
     id
@@ -106,7 +106,7 @@ export const onUpdateVisitRecord = `subscription OnUpdateVisitRecord($owner: Str
     owner
   }
 }
-`;
+`
 export const onDeleteVisitRecord = `subscription OnDeleteVisitRecord($owner: String!) {
   onDeleteVisitRecord(owner: $owner) {
     id
@@ -126,4 +126,4 @@ export const onDeleteVisitRecord = `subscription OnDeleteVisitRecord($owner: Str
     owner
   }
 }
-`;
+`

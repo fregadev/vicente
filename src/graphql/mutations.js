@@ -22,7 +22,7 @@ export const createAssistedPerson = `mutation CreateAssistedPerson($input: Creat
     }
   }
 }
-`;
+`
 export const updateAssistedPerson = `mutation UpdateAssistedPerson($input: UpdateAssistedPersonInput!) {
   updateAssistedPerson(input: $input) {
     id
@@ -44,7 +44,7 @@ export const updateAssistedPerson = `mutation UpdateAssistedPerson($input: Updat
     }
   }
 }
-`;
+`
 export const deleteAssistedPerson = `mutation DeleteAssistedPerson($input: DeleteAssistedPersonInput!) {
   deleteAssistedPerson(input: $input) {
     id
@@ -66,7 +66,7 @@ export const deleteAssistedPerson = `mutation DeleteAssistedPerson($input: Delet
     }
   }
 }
-`;
+`
 export const createVisitRecord = `mutation CreateVisitRecord($input: CreateVisitRecordInput!) {
   createVisitRecord(input: $input) {
     id
@@ -86,7 +86,7 @@ export const createVisitRecord = `mutation CreateVisitRecord($input: CreateVisit
     owner
   }
 }
-`;
+`
 export const updateVisitRecord = `mutation UpdateVisitRecord($input: UpdateVisitRecordInput!) {
   updateVisitRecord(input: $input) {
     id
@@ -106,7 +106,7 @@ export const updateVisitRecord = `mutation UpdateVisitRecord($input: UpdateVisit
     owner
   }
 }
-`;
+`
 export const deleteVisitRecord = `mutation DeleteVisitRecord($input: DeleteVisitRecordInput!) {
   deleteVisitRecord(input: $input) {
     id
@@ -126,4 +126,4 @@ export const deleteVisitRecord = `mutation DeleteVisitRecord($input: DeleteVisit
     owner
   }
 }
-`;
+`

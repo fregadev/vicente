@@ -1,14 +1,12 @@
 {
-    "trigger": true,
-    "modules": [
-        "captcha-verify"
-    ],
-    "parentResource": "vicente",
-    "functionName": "vicenteVerifyAuthChallengeResponse",
-    "parentStack": "auth",
-    "triggerEnvs": "[]",
-    "triggerTemplate": "VerifyAuthChallengeResponse.json.ejs",
-    "roleName": "vicenteVerifyAuthChallengeResponse",
-    "skipEdit": true,
-    "resourceName": "vicenteVerifyAuthChallengeResponse"
+  "trigger": true,
+  "modules": ["captcha-verify"],
+  "parentResource": "vicente",
+  "functionName": "vicenteVerifyAuthChallengeResponse",
+  "parentStack": "auth",
+  "triggerEnvs": "[]",
+  "triggerTemplate": "VerifyAuthChallengeResponse.json.ejs",
+  "roleName": "vicenteVerifyAuthChallengeResponse",
+  "skipEdit": true,
+  "resourceName": "vicenteVerifyAuthChallengeResponse"
 }

@@ -1,104 +1,70 @@
 {
-    "identityPoolName": "vicente",
-    "allowUnauthenticatedIdentities": false,
-    "resourceNameTruncated": "vicent1ddc9c41",
-    "userPoolName": "vicente",
-    "autoVerifiedAttributes": [
-        "phone_number"
-    ],
-    "mfaConfiguration": "ON",
-    "mfaTypes": [
-        "SMS Text Message"
-    ],
-    "smsAuthenticationMessage": "Seu codigo para acessar o Vicente: {####}",
-    "smsVerificationMessage": "Seu codigo para acessar o Vicente: {####}",
-    "emailVerificationSubject": "Your verification code",
-    "emailVerificationMessage": "Your verification code is {####}",
-    "defaultPasswordPolicy": false,
-    "passwordPolicyMinLength": 8,
-    "passwordPolicyCharacters": [],
-    "requiredAttributes": [
-        "name",
-        "phone_number"
-    ],
-    "userpoolClientGenerateSecret": true,
-    "userpoolClientRefreshTokenValidity": 30,
-    "userpoolClientWriteAttributes": [
-        "email"
-    ],
-    "userpoolClientReadAttributes": [
-        "email"
-    ],
-    "userpoolClientLambdaRole": "vicent1ddc9c41_userpoolclient_lambda_role",
-    "userpoolClientSetAttributes": false,
-    "useDefault": "manual",
-    "authSelections": "identityPoolAndUserPool",
-    "resourceName": "vicente",
-    "thirdPartyAuth": false,
-    "usernameAttributes": [
-        "phone_number"
-    ],
-    "userPoolGroups": true,
-    "adminQueries": true,
-    "triggers": "{\"CreateAuthChallenge\":[\"captcha-create-challenge\"],\"DefineAuthChallenge\":[\"captcha-define-challenge\"],\"PostConfirmation\":[\"custom\"],\"VerifyAuthChallengeResponse\":[\"captcha-verify\"]}",
-    "hostedUI": false,
-    "userPoolGroupList": [
-        "vicentians",
-        "sysadmins"
-    ],
-    "adminQueryGroup": "sysadmins",
-    "authRoleArn": {
-        "Fn::GetAtt": [
-            "AuthRole",
-            "Arn"
-        ]
+  "identityPoolName": "vicente",
+  "allowUnauthenticatedIdentities": false,
+  "resourceNameTruncated": "vicent1ddc9c41",
+  "userPoolName": "vicente",
+  "autoVerifiedAttributes": ["phone_number"],
+  "mfaConfiguration": "ON",
+  "mfaTypes": ["SMS Text Message"],
+  "smsAuthenticationMessage": "Seu codigo para acessar o Vicente: {####}",
+  "smsVerificationMessage": "Seu codigo para acessar o Vicente: {####}",
+  "emailVerificationSubject": "Your verification code",
+  "emailVerificationMessage": "Your verification code is {####}",
+  "defaultPasswordPolicy": false,
+  "passwordPolicyMinLength": 8,
+  "passwordPolicyCharacters": [],
+  "requiredAttributes": ["name", "phone_number"],
+  "userpoolClientGenerateSecret": true,
+  "userpoolClientRefreshTokenValidity": 30,
+  "userpoolClientWriteAttributes": ["email"],
+  "userpoolClientReadAttributes": ["email"],
+  "userpoolClientLambdaRole": "vicent1ddc9c41_userpoolclient_lambda_role",
+  "userpoolClientSetAttributes": false,
+  "useDefault": "manual",
+  "authSelections": "identityPoolAndUserPool",
+  "resourceName": "vicente",
+  "thirdPartyAuth": false,
+  "usernameAttributes": ["phone_number"],
+  "userPoolGroups": true,
+  "adminQueries": true,
+  "triggers": "{\"CreateAuthChallenge\":[\"captcha-create-challenge\"],\"DefineAuthChallenge\":[\"captcha-define-challenge\"],\"PostConfirmation\":[\"custom\"],\"VerifyAuthChallengeResponse\":[\"captcha-verify\"]}",
+  "hostedUI": false,
+  "userPoolGroupList": ["vicentians", "sysadmins"],
+  "adminQueryGroup": "sysadmins",
+  "authRoleArn": {
+    "Fn::GetAtt": ["AuthRole", "Arn"]
+  },
+  "unauthRoleArn": {
+    "Fn::GetAtt": ["UnauthRole", "Arn"]
+  },
+  "parentStack": {
+    "Ref": "AWS::StackId"
+  },
+  "permissions": [],
+  "dependsOn": [
+    {
+      "category": "function",
+      "resourceName": "vicenteCreateAuthChallenge",
+      "triggerProvider": "Cognito",
+      "attributes": ["Arn", "Name"]
     },
-    "unauthRoleArn": {
-        "Fn::GetAtt": [
-            "UnauthRole",
-            "Arn"
-        ]
+    {
+      "category": "function",
+      "resourceName": "vicenteDefineAuthChallenge",
+      "triggerProvider": "Cognito",
+      "attributes": ["Arn", "Name"]
     },
-    "parentStack": {
-        "Ref": "AWS::StackId"
+    {
+      "category": "function",
+      "resourceName": "vicentePostConfirmation",
+      "triggerProvider": "Cognito",
+      "attributes": ["Arn", "Name"]
     },
-    "permissions": [],
-    "dependsOn": [
-        {
-            "category": "function",
-            "resourceName": "vicenteCreateAuthChallenge",
-            "triggerProvider": "Cognito",
-            "attributes": [
-                "Arn",
-                "Name"
-            ]
-        },
-        {
-            "category": "function",
-            "resourceName": "vicenteDefineAuthChallenge",
-            "triggerProvider": "Cognito",
-            "attributes": [
-                "Arn",
-                "Name"
-            ]
-        },
-        {
-            "category": "function",
-            "resourceName": "vicentePostConfirmation",
-            "triggerProvider": "Cognito",
-            "attributes": [
-                "Arn",
-                "Name"
-            ]
-        },
-        {
-            "category": "function",
-            "resourceName": "vicenteVerifyAuthChallengeResponse",
-            "triggerProvider": "Cognito",
-            "attributes": [
-                "Arn",
-                "Name"
-            ]
-        }
-    ]
+    {
+      "category": "function",
+      "resourceName": "vicenteVerifyAuthChallengeResponse",
+      "triggerProvider": "Cognito",
+      "attributes": ["Arn", "Name"]
+    }
+  ]
 }
