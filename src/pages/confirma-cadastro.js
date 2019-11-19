@@ -1,3 +1,4 @@
+// todo: reescrever no mesmo esquema do confirma-login
 import React, { useEffect, useState } from "react"
 import Avatar from "@material-ui/core/Avatar"
 import Button from "@material-ui/core/Button"
@@ -10,7 +11,7 @@ import Typography from "@material-ui/core/Typography"
 import Container from "@material-ui/core/Container"
 
 import { Auth } from "aws-amplify"
-import { navigate } from "gatsby"
+// import { navigate } from "gatsby"
 import { Copyright } from "../components/copyright"
 import { useStyles } from "../styles/styles"
 
