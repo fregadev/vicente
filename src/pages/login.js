@@ -43,6 +43,8 @@ export default function Login() {
           localStorage.setItem(`phone`, fields.username)
           setUserObj(user)
           setLoginStatus(`MFA`)
+        } else {
+          navigate(`/assistidos/`).then()
         }
         Auth.currentUserInfo().then(value => {
           console.log(value)

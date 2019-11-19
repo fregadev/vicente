@@ -6,6 +6,9 @@ export const useStyles = makeStyles(theme => ({
       backgroundColor: theme.palette.common.white,
     },
   },
+  root: {
+    padding: theme.spacing(3, 2),
+  },
   paper: {
     marginTop: theme.spacing(8),
     display: "flex",
