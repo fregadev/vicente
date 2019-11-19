@@ -4,9 +4,19 @@ type AssistedPerson @model {
     address: String
     familyMembers: [AssistedPerson]
     birthdate: String
-    phoneNUmber: String
+    phoneNumber: String
+    email: String
     conference: Conference
+    status: AssistedPersonStatus
+    comments: String
 }
+
+enum AssistedPersonStatus {
+    CANDIDATE
+    IN_ASSISTANCE
+    PROMOTED
+}
+
 type Conference @model {
     id: ID!
     name: String!
