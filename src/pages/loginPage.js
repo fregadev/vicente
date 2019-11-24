@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react"
+import React, { useState } from "react"
 import Avatar from "@material-ui/core/Avatar"
 import Button from "@material-ui/core/Button"
 import CssBaseline from "@material-ui/core/CssBaseline"
@@ -13,11 +13,13 @@ import { Auth } from "aws-amplify"
 import { Copyright } from "../components/copyright"
 import { useStyles } from "../styles/styles"
 import ConfirmaLogin from "../components/confirma-login"
+import { Link } from "react-router-dom"
 
 export default function LoginPage() {
+  // todo: redirecionar automaticamente se já estiver logado
   const classes = useStyles()
   const [fields, setFields] = useState({
-    username: localStorage.getItem(`phone`),
+    username: localStorage.getItem(`phone`) || ``,
   })
   const [loginStatus, setLoginStatus] = useState(`initial`)
   const [userObj, setUserObj] = useState(null)
@@ -35,7 +37,6 @@ export default function LoginPage() {
 
   function handleSubmission(event) {
     event.preventDefault()
-    console.log(fields.username, fields.password)
     Auth.signIn(fields.username, fields.password)
       .then(user => {
         if (user.challengeName === "SMS_MFA") {
@@ -50,6 +51,7 @@ export default function LoginPage() {
         })
       })
       .catch(reason => {
+        // todo: tratativa dos erros de login
         console.warn(reason)
       })
   }
@@ -69,7 +71,7 @@ export default function LoginPage() {
             <Grid container spacing={2}>
               <Grid item xs={12}>
                 <TextField
-                  autoComplete="phone"
+                  autoComplete="username"
                   name="username"
                   variant="outlined"
                   required
@@ -77,7 +79,6 @@ export default function LoginPage() {
                   id="username"
                   label="Seu telefone"
                   autoFocus
-                  type={`phone`}
                   value={fields.username}
                   onChange={handleInputChange}
                 />
@@ -96,16 +97,28 @@ export default function LoginPage() {
                   onChange={handleInputChange}
                 />
               </Grid>
+              <Grid item xs={12}>
+                <Button
+                  type="submit"
+                  fullWidth
+                  variant="contained"
+                  color="primary"
+                  className={classes.submit}
+                >
+                  Confirmar
+                </Button>
+              </Grid>
+              <Grid item xs={6}>
+                <Link to={`/cadastro`}>
+                  Cadastre-se
+                </Link>
+              </Grid>
+              <Grid item xs={6}>
+                <Link to={`/recuperar-senha`}>
+                  Esqueci minha senha?
+                </Link>
+              </Grid>
             </Grid>
-            <Button
-              type="submit"
-              fullWidth
-              variant="contained"
-              color="primary"
-              className={classes.submit}
-            >
-              Confirmar
-            </Button>
           </form>
         ) : (
           loginStatus === `MFA` && <ConfirmaLogin user={userObj} />

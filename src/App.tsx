@@ -1,23 +1,29 @@
-import React, { useState } from "react"
+import React from "react"
 import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Link,
   Redirect,
   RouteProps,
 } from "react-router-dom"
 
-import { Auth } from "aws-amplify"
+import Amplify from "aws-amplify"
 import LoginPage from "./pages/loginPage"
 import IndexPage from "./pages/index"
+import CadastroPage from "./pages/cadastroPage"
 
+import AwsConfig from "./aws-exports"
+
+Amplify.configure(AwsConfig)
 
 const App: React.FC = () => {
   return <Router>
     <Switch>
       <Route path={`/login`}>
         <LoginPage />
+      </Route>
+      <Route path={`/cadastro`}>
+        <CadastroPage />
       </Route>
       <PrivateRoute path={`/`} isLoggedIn={false/*todo: adicionar aqui estado de login*/}>
         <IndexPage />

@@ -12,7 +12,7 @@ import Container from "@material-ui/core/Container"
 
 import { Auth } from "aws-amplify"
 // import { navigate } from "gatsby"
-import { Copyright } from "../components/copyright"
+import { Copyright } from "./copyright"
 import { useStyles } from "../styles/styles"
 
 export default function ConfirmaCadastro() {

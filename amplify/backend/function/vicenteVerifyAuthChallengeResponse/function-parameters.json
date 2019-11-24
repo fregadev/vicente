@@ -1,12 +1,16 @@
 {
-  "trigger": true,
-  "modules": ["captcha-verify"],
-  "parentResource": "vicente",
-  "functionName": "vicenteVerifyAuthChallengeResponse",
-  "parentStack": "auth",
-  "triggerEnvs": "[]",
-  "triggerTemplate": "VerifyAuthChallengeResponse.json.ejs",
-  "roleName": "vicenteVerifyAuthChallengeResponse",
-  "skipEdit": true,
-  "resourceName": "vicenteVerifyAuthChallengeResponse"
+    "trigger": true,
+    "modules": [
+        "captcha-verify"
+    ],
+    "parentResource": "vicente",
+    "functionName": "vicenteVerifyAuthChallengeResponse",
+    "parentStack": "auth",
+    "triggerEnvs": "[]",
+    "triggerDir": "/Users/robertofrega/.nvm/versions/node/v12.9.1/lib/node_modules/@aws-amplify/cli/node_modules/amplify-category-auth/provider-utils/awscloudformation/utils/../triggers/VerifyAuthChallengeResponse",
+    "roleName": "vicenteVerifyAuthChallengeResponse",
+    "triggerTemplate": "VerifyAuthChallengeResponse.json.ejs",
+    "triggerEventPath": "VerifyAuthChallengeResponse.event.json",
+    "skipEdit": true,
+    "resourceName": "vicenteVerifyAuthChallengeResponse"
 }
