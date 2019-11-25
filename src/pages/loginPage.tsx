@@ -132,7 +132,7 @@ function LoginPage({ currentUser }: LoginPageProps) {
             </Grid>
           </form>
         ) : (
-          loginStatus === `MFA` && <ConfirmaLogin user={userObj} />
+          loginStatus === `MFA` && <ConfirmaLogin userObject={userObj} />
         )}
       </div>
       <Box mt={5}>
