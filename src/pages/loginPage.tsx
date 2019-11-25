@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { FormEvent, useState } from "react"
 import Avatar from "@material-ui/core/Avatar"
 import Button from "@material-ui/core/Button"
 import CssBaseline from "@material-ui/core/CssBaseline"
@@ -13,42 +13,53 @@ import { Auth } from "aws-amplify"
 import { Copyright } from "../components/copyright"
 import { useStyles } from "../styles/styles"
 import ConfirmaLogin from "../components/confirma-login"
-import { Link } from "react-router-dom"
+import { Link, RouteProps, useHistory, useLocation } from "react-router-dom"
+import { RootState } from "../store/rootReducer"
+import { connect } from "react-redux"
 
-export default function LoginPage() {
+interface LoginPageProps {
+  currentUser: { status: string }
+}
+
+function LoginPage({ currentUser }: LoginPageProps) {
   // todo: redirecionar automaticamente se já estiver logado
+  const history = useHistory()
+  const location = useLocation()
+  if (currentUser.status === "logged-in") {
+    const { from } = location.state || { from: { pathname: "/" } }
+    history.replace(from)
+  }
+
   const classes = useStyles()
   const [fields, setFields] = useState({
-    username: localStorage.getItem(`phone`) || ``,
+    username: localStorage.getItem(`phone`) || ``, //todo???
+    password: ``,
   })
   const [loginStatus, setLoginStatus] = useState(`initial`)
   const [userObj, setUserObj] = useState(null)
 
-  function handleInputChange(event) {
-    const target = event.target
-    const value = target.value
-    const name = target.name
-
+  function handleInputChange(event: React.ChangeEvent<HTMLInputElement>) {
+    const { name, value } = event.target
     setFields({
       ...fields,
       [name]: value,
     })
   }
 
-  function handleSubmission(event) {
+  function handleSubmission(event: React.FormEvent) {
     event.preventDefault()
     Auth.signIn(fields.username, fields.password)
       .then(user => {
         if (user.challengeName === "SMS_MFA") {
-          localStorage.setItem(`phone`, fields.username)
+          localStorage.setItem(`phone`, fields.username) //todo this is sooo wrooooong
           setUserObj(user)
           setLoginStatus(`MFA`)
         } else {
-
+          if (currentUser.status === "logged-in") {
+            const { from } = location.state || { from: { pathname: "/" } }
+            history.replace(from)
+          }
         }
-        Auth.currentUserInfo().then(value => {
-          console.log(value)
-        })
       })
       .catch(reason => {
         // todo: tratativa dos erros de login
@@ -130,3 +141,9 @@ export default function LoginPage() {
     </Container>
   )
 }
+
+export default connect((state: RootState) => {
+  return ({
+    currentUser: state.currentUser,
+  })
+})(LoginPage)

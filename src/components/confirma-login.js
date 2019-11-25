@@ -26,10 +26,10 @@ export default function ConfirmaLogin(props) {
     event.preventDefault()
     Auth.confirmSignIn(user, fields.otc, `SMS_MFA`)
       .then(value => {
-        console.log(value)
-        Auth.currentUserInfo().then(value => {
-          console.log(value)
-        })
+        if (currentUser.status === "logged-in") {
+          const { from } = location.state || { from: { pathname: "/" } }
+          history.replace(from)
+        }
       })
       .catch(reason => {
         console.warn(reason)
