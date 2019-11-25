@@ -29,7 +29,7 @@ const AddAssistedPersonButton = () => {
   )
 }
 
-export default function(props) {
+export default function AssistidosLista(props) {
   return (
     <LoggedIn pageName={`Assistidos`}>
       <List>

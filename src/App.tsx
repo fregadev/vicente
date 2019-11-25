@@ -6,11 +6,10 @@ import LoginPage from "./pages/loginPage"
 import IndexPage from "./pages/index"
 import CadastroPage from "./pages/cadastroPage"
 import AwsConfig from "./aws-exports"
-import { connect } from "react-redux"
-import { RootState } from "./store/rootReducer"
 import PrivateRoute from "./components/PrivateRoute"
 import store from "./store"
 import { loginUser } from "./store/current-user"
+import AssistidosLista from "./pages/assistidos"
 
 // INITIALIZATION
 Amplify.configure(AwsConfig)
@@ -28,8 +27,11 @@ const App: React.FC = () => {
       <Route path={`/cadastro`}>
         <CadastroPage />
       </Route>
-      <PrivateRoute path={`/`}>
+      <PrivateRoute exact path={`/`}>
         <IndexPage />
+      </PrivateRoute>
+      <PrivateRoute path={`/assistidos/`}>
+        <AssistidosLista />
       </PrivateRoute>
     </Switch>
   </Router>
