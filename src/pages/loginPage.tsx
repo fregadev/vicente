@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react"
+import React, { FormEvent, useState } from "react"
 import Avatar from "@material-ui/core/Avatar"
 import Button from "@material-ui/core/Button"
 import CssBaseline from "@material-ui/core/CssBaseline"
@@ -10,47 +10,59 @@ import Typography from "@material-ui/core/Typography"
 import Container from "@material-ui/core/Container"
 
 import { Auth } from "aws-amplify"
-import { navigate } from "gatsby"
 import { Copyright } from "../components/copyright"
 import { useStyles } from "../styles/styles"
 import ConfirmaLogin from "../components/confirma-login"
+import { Link, RouteProps, useHistory, useLocation } from "react-router-dom"
+import { RootState } from "../store/rootReducer"
+import { connect } from "react-redux"
 
-export default function Login() {
+interface LoginPageProps {
+  currentUser: { status: string }
+}
+
+function LoginPage({ currentUser }: LoginPageProps) {
+  // todo: redirecionar automaticamente se já estiver logado
+  const history = useHistory()
+  const location = useLocation()
+  if (currentUser.status === "logged-in") {
+    const { from } = location.state || { from: { pathname: "/" } }
+    history.replace(from)
+  }
+
   const classes = useStyles()
   const [fields, setFields] = useState({
-    username: localStorage.getItem(`phone`),
+    username: localStorage.getItem(`phone`) || ``, //todo???
+    password: ``,
   })
   const [loginStatus, setLoginStatus] = useState(`initial`)
   const [userObj, setUserObj] = useState(null)
 
-  function handleInputChange(event) {
-    const target = event.target
-    const value = target.value
-    const name = target.name
-
+  function handleInputChange(event: React.ChangeEvent<HTMLInputElement>) {
+    const { name, value } = event.target
     setFields({
       ...fields,
       [name]: value,
     })
   }
 
-  function handleSubmission(event) {
+  function handleSubmission(event: React.FormEvent) {
     event.preventDefault()
-    console.log(fields.username, fields.password)
     Auth.signIn(fields.username, fields.password)
       .then(user => {
         if (user.challengeName === "SMS_MFA") {
-          localStorage.setItem(`phone`, fields.username)
+          localStorage.setItem(`phone`, fields.username) //todo this is sooo wrooooong
           setUserObj(user)
           setLoginStatus(`MFA`)
         } else {
-          navigate(`/assistidos/`).then()
+          if (currentUser.status === "logged-in") {
+            const { from } = location.state || { from: { pathname: "/" } }
+            history.replace(from)
+          }
         }
-        Auth.currentUserInfo().then(value => {
-          console.log(value)
-        })
       })
       .catch(reason => {
+        // todo: tratativa dos erros de login
         console.warn(reason)
       })
   }
@@ -70,7 +82,7 @@ export default function Login() {
             <Grid container spacing={2}>
               <Grid item xs={12}>
                 <TextField
-                  autoComplete="phone"
+                  autoComplete="username"
                   name="username"
                   variant="outlined"
                   required
@@ -78,7 +90,6 @@ export default function Login() {
                   id="username"
                   label="Seu telefone"
                   autoFocus
-                  type={`phone`}
                   value={fields.username}
                   onChange={handleInputChange}
                 />
@@ -97,19 +108,31 @@ export default function Login() {
                   onChange={handleInputChange}
                 />
               </Grid>
+              <Grid item xs={12}>
+                <Button
+                  type="submit"
+                  fullWidth
+                  variant="contained"
+                  color="primary"
+                  className={classes.submit}
+                >
+                  Confirmar
+                </Button>
+              </Grid>
+              <Grid item xs={6}>
+                <Link to={`/cadastro`}>
+                  Cadastre-se
+                </Link>
+              </Grid>
+              <Grid item xs={6}>
+                <Link to={`/recuperar-senha`}>
+                  Esqueci minha senha?
+                </Link>
+              </Grid>
             </Grid>
-            <Button
-              type="submit"
-              fullWidth
-              variant="contained"
-              color="primary"
-              className={classes.submit}
-            >
-              Confirmar
-            </Button>
           </form>
         ) : (
-          loginStatus === `MFA` && <ConfirmaLogin user={userObj} />
+          loginStatus === `MFA` && <ConfirmaLogin userObject={userObj} />
         )}
       </div>
       <Box mt={5}>
@@ -118,3 +141,9 @@ export default function Login() {
     </Container>
   )
 }
+
+export default connect((state: RootState) => {
+  return ({
+    currentUser: state.currentUser,
+  })
+})(LoginPage)

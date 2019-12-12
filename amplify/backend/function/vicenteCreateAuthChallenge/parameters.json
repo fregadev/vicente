@@ -1,4 +1,1 @@
-{
-  "modules": "captcha-create-challenge",
-  "resourceName": "vicenteCreateAuthChallenge"
-}
+{"modules":"captcha-create-challenge"}

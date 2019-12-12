@@ -12,12 +12,14 @@ import Container from "@material-ui/core/Container"
 
 import { Auth } from "aws-amplify"
 // import { navigate } from "gatsby"
-import { Copyright } from "../components/copyright"
+import { Copyright } from "./copyright"
 import { useStyles } from "../styles/styles"
 
 export default function ConfirmaCadastro() {
   const classes = useStyles()
-  const [fields, setFields] = useState({})
+  const [fields, setFields] = useState({
+    otc: "",
+  })
   const [userInfo, setUserInfo] = useState(null)
 
   Auth.currentAuthenticatedUser().then(value => {
@@ -29,21 +31,20 @@ export default function ConfirmaCadastro() {
     console.log(userInfo)
   })
 
-  function handleInputChange(event) {
-    const target = event.target
-    const value = target.value
-    const name = target.name
-
+  function handleInputChange(event: React.ChangeEvent<HTMLInputElement>) {
+    const { name, value } = event.target
     setFields({
       ...fields,
       [name]: value,
     })
   }
 
-  function handleSubmission(event) {
+  function handleSubmission(event: React.FormEvent) {
     event.preventDefault()
-    Auth.confirmSignUp(localStorage.getItem(`phone`), fields.otc)
-      .then(value => {
+
+    //todo: pegar do store redux em vez do localstorage
+    Auth.confirmSignUp(localStorage.getItem(`phone`) as string, fields.otc)
+      .then((value) => {
         console.log(value)
         Auth.currentUserInfo().then(value => {
           setUserInfo(value)

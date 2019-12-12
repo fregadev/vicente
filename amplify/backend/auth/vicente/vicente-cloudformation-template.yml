@@ -145,10 +145,7 @@ Parameters:
                     
   userPoolGroupList:
     Type: CommaDelimitedList
-      
-  adminQueryGroup:
-    Type: String
-                                            
+                                                
   parentStack:
     Type: String
                 

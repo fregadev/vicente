@@ -1,4 +1,4 @@
-import { useStyles } from "../../styles/styles"
+import { useStyles } from "../styles/styles"
 import { AppBar, CssBaseline } from "@material-ui/core"
 import Toolbar from "@material-ui/core/Toolbar"
 import IconButton from "@material-ui/core/IconButton"
@@ -14,7 +14,12 @@ export const LoggedIn = ({ children, pageName }) => {
       <CssBaseline />
       <AppBar position={`static`}>
         <Toolbar>
-          <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
+          <IconButton
+            edge="start"
+            className={classes.menuButton}
+            color="inherit"
+            aria-label="menu"
+          >
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" className={classes.title}>

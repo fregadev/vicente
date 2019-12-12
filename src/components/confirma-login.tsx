@@ -5,13 +5,24 @@ import Grid from "@material-ui/core/Grid"
 import Typography from "@material-ui/core/Typography"
 import { Auth } from "aws-amplify"
 import { useStyles } from "../styles/styles"
+import { connect } from "react-redux"
+import { RootState } from "../store/rootReducer"
+import { useHistory, useLocation } from "react-router"
 
-export default function ConfirmaLogin(props) {
+interface ConfirmaLoginProps {
+  userObject: any
+}
+
+function ConfirmaLogin({ userObject }: ConfirmaLoginProps) {
   const classes = useStyles()
-  const [fields, setFields] = useState({})
-  const { user } = props
+  const [fields, setFields] = useState({
+    otc: "",
+  })
 
-  function handleInputChange(event) {
+  const history = useHistory()
+  const location = useLocation()
+
+  function handleInputChange(event: React.ChangeEvent<HTMLInputElement>) {
     const target = event.target
     const value = target.value
     const name = target.name
@@ -22,14 +33,12 @@ export default function ConfirmaLogin(props) {
     })
   }
 
-  function handleSubmission(event) {
+  function handleSubmission(event: React.FormEvent) {
     event.preventDefault()
-    Auth.confirmSignIn(user, fields.otc, `SMS_MFA`)
+    Auth.confirmSignIn(userObject, fields.otc, `SMS_MFA`)
       .then(value => {
-        console.log(value)
-        Auth.currentUserInfo().then(value => {
-          console.log(value)
-        })
+        const { from } = location.state || { from: { pathname: "/" } }
+        history.replace(from)
       })
       .catch(reason => {
         console.warn(reason)
@@ -71,3 +80,9 @@ export default function ConfirmaLogin(props) {
     </div>
   )
 }
+
+export default connect((state: RootState) => {
+  return ({
+    currentUser: state.currentUser,
+  })
+})(ConfirmaLogin)

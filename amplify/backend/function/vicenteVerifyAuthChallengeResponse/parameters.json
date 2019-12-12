@@ -1,4 +1,1 @@
-{
-  "modules": "captcha-verify",
-  "resourceName": "vicenteVerifyAuthChallengeResponse"
-}
+{"modules":"captcha-verify"}
