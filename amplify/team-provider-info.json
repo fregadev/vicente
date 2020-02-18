@@ -1,0 +1,20 @@
+{
+    "dev": {
+        "awscloudformation": {
+            "AuthRoleName": "amplify-vicente-dev-161617-authRole",
+            "UnauthRoleArn": "arn:aws:iam::940675111421:role/amplify-vicente-dev-161617-unauthRole",
+            "AuthRoleArn": "arn:aws:iam::940675111421:role/amplify-vicente-dev-161617-authRole",
+            "Region": "us-east-1",
+            "DeploymentBucketName": "amplify-vicente-dev-161617-deployment",
+            "UnauthRoleName": "amplify-vicente-dev-161617-unauthRole",
+            "StackName": "amplify-vicente-dev-161617",
+            "StackId": "arn:aws:cloudformation:us-east-1:940675111421:stack/amplify-vicente-dev-161617/25f35980-5283-11ea-ac52-0a3d3edde975",
+            "AmplifyAppId": "d1uvvgps3p99hq"
+        },
+        "categories": {
+            "auth": {
+                "vicente071a4756": {}
+            }
+        }
+    }
+}

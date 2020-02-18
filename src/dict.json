@@ -1,0 +1,31 @@
+{
+  "pt-BR": {
+    "Sign in to your account": "Entre com a sua conta",
+    "Create Account": "Criar conta",
+    "Have an account? ": "Já possui uma conta? ",
+    "Enter your email": "Insira o seu email",
+    "Enter your password": "Insira sua senha",
+    "Password": "Senha",
+    "New Password": "Nova Senha",
+    "Forget your password? ": "Esqueceu a sua senha? ",
+    "No account? ": "Não tem uma conta? ",
+    "Create account": "Criar conta",
+    "Reset password": "Recuperar senha",
+    "Reset your password": "Recupere a sua senha",
+    "Back to Sign In": "Voltar para a página de login",
+    "Send Code": "Enviar Código",
+    "Resend Code": "Reenviar Código",
+    "Code": "Código",
+    "Sign In": "Entrar",
+    "Sign in": "Entrar",
+    "Submit": "Enviar",
+    "Phone Number": "Telefone",
+    "Confirm Sign Up": "Confirmação do cadastro",
+    "Confirmation Code": "Código de confirmação (enviado para o seu email)",
+    "Enter your code": "Insira seu código",
+    "Lost your code? ": "Perdeu seu código? ",
+    "Confirm": "Confirmar",
+    "Hello": "Olá",
+    "Sign Out": "Sair"
+  }
+}
